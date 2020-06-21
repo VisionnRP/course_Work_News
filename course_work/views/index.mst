@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en">
+  {{> head }}
+    {{> header }}
+    <br><br>
+    <span class=news-text>News</span>
+    
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  {{> head }}
+    {{> header }}
+      <div class="row form-inline">
+        <div style="width: 100%;">
+          <div class="text-center">
+            <h1>Показники Моди та Медіани</h1>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="padding-left: 32px;" scope="col">Індекси</th>
+                <th scope="col">Дані</th>
+                <th scope="col">Мода</th>
+                <th scope="col">Mедіана</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th style="padding-left: 32px;" scope="row">{{index}}</th>
+                <td>Об'єм</td>
+                <td>{{mode.byte}}</td>
+                <td>{{median.byte}}</td>
+              </tr>
+              <tr>
+                <th style="padding-left: 32px;" scope="row">{{index}}</th>
+                <td>Переглядів</td>
+                <td>{{mode.viewed}}</td>
+                <td>{{median.viewed}}</td>
+              </tr>
+              <tr>
+                <th style="padding-left: 32px;" scope="row">{{index}}</th>
+                <td>Постів сьогодні</td>
+                <td>{{mode.len}}</td>
+                <td>{{median.len}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <canvas id="oilChart" width="1200" height="400"></canvas>
+      <canvas id="oilChart2" width="1800" height="400"></canvas>
+      <canvas id="oilChart3" width="1800" height="400"></canvas>
+  </body>
+</html>
+

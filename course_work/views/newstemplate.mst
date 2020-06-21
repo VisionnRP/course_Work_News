@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  {{> head }}
+    {{> header }}
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Автор</th>
+            <th scope="col">Об'єм</th>
+            <th scope="col">Переглядів</th>
+            <th scope="col">Постів за сьогодні</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#news}}
+          <tr>
+            <th scope="row">{{index}}</th>
+            <td>{{author}}</td>
+            <td>{{byte}}</td>
+            <td>{{viewed}}</td>
+            <td>{{len}}</td>
+          </tr>
+        {{/news}}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

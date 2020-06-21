@@ -1,0 +1,47 @@
+body {
+    background: url('/images/mosaic.png');
+    color: white;
+}
+
+.circle {
+    background: white;
+    border: 2px solid rgb(0, 76, 153);
+    border-radius: 200px;
+    color: rgb(42, 74, 104);
+    height: 300px;
+    font-weight: bold;
+    width: 300px;
+    display: table;
+    margin: 20px auto;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 30px;
+}
+
+.circle p {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.zc-body {
+    background: #fff;
+}
+
+.chart--container {
+    height: 100%;
+    width: 100%;
+    min-height: 530px;
+}
+
+.zc-ref {
+    display: none;
+}
+
+.news-text {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    font-size: 317px;
+    color: black;
+    margin-left: 20%;
+}
