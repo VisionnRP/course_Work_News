@@ -17,28 +17,12 @@ class Author {
         this.viewed = viewed;
     }
 
-    static getById(id) {
-        return AuthorModel.findById({ _id: id });
-    }
-
-    static getByName(name) {
-        return AuthorModel.findOne({ name: name });
-    }
-
-    static getSomething(query) {
-        return AuthorModel.find({}).select(query);
-    }
-
     static getAll() {
         return AuthorModel.find();
     }
 
     static insert(author) {
         return new AuthorModel(author).save();
-    }
-
-    static findByDate(date) {
-        return AuthorModel.find({ date: date });
     }
 
     static removeAll() {

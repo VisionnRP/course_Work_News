@@ -1,10 +1,17 @@
 const express = require('express');
+
 const mustache = require('mustache-express');
+
 const path = require('path');
+
 const child_process = require('child_process');
+
 const bodyParser = require('body-parser');
+
 const busboyBodyParser = require('busboy-body-parser');
+
 const mongoose = require('mongoose');
+
 const sstatistics = require("simple-statistics")
 
 const app = express();
@@ -12,40 +19,26 @@ const app = express();
 const config = require('./config');
 
 const cookieParser = require('cookie-parser');
+
 const session = require('express-session');
+
 const Author = require("./models/author")
 
 const viewsDir = path.join(__dirname, 'views');
+
 app.engine("mst", mustache(path.join(viewsDir, "partials")));
+
 app.set('views', viewsDir);
+
 app.set('view engine', 'mst');
 
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(busboyBodyParser({ limit: '5mb' }));
 
 app.use(express.static('public'));
-
-// new middleware
-app.use(cookieParser());
-app.use(session({
-    secret: config.SecretString,
-    resave: false,
-    saveUninitialized: true
-}));
-
-const PORT = config.ServerPort;
-const databaseUrl = config.DatabaseUrl;
-const connectOptions = { useNewUrlParser: true };
-
-mongoose.connect(databaseUrl, connectOptions)
-    .then(() => console.log(`Database connected: ${databaseUrl}`))
-    .then(() => app.listen(PORT, function() { console.log('Server is ready'); }))
-    .catch(err => console.log(`Start error ${err}`));
-
-const getNews = require('./service')
-
-setInterval(getNews.getNews, 30000);
 
 app.get('/backup', function(req, res) {
     const command = `mongodump --db mydb --collection author_stats`;
@@ -101,7 +94,7 @@ app.get('/graph', function(req, res) {
                 airStatsArray.viewed.push(parseFloat(station.viewed));
                 airStatsArray.len.push(parseFloat(station.len));
             }
-            parseInt
+
             let mode = {
                 byte: sstatistics.mode(airStatsArray.byte),
                 viewed: sstatistics.mode(airStatsArray.viewed),
@@ -123,3 +116,23 @@ app.get('/author', function(req, res) {
             res.send(auth);
         });
 });
+
+app.use(cookieParser());
+app.use(session({
+    secret: config.SecretString,
+    resave: false,
+    saveUninitialized: true
+}));
+
+const PORT = config.ServerPort;
+const databaseUrl = config.DatabaseUrl;
+const connectOptions = { useNewUrlParser: true };
+
+mongoose.connect(databaseUrl, connectOptions)
+    .then(() => console.log(`Database connected: ${databaseUrl}`))
+    .then(() => app.listen(PORT, function() { console.log('Server is ready'); }))
+    .catch(err => console.log(`Start error ${err}`));
+
+const getNews = require('./service')
+
+setInterval(getNews.getNews, 30000);

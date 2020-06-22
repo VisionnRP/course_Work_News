@@ -2,13 +2,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>News </title>
-    <meta name="description" content="Lab1">
+    <meta name="description" content="course work">
     <meta name="author">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/style-component/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://unpkg.com/simple-statistics@7.1.0/dist/simple-statistics.min.js"></script>
-    <script src="/javascripts/js.js" type="module"></script>
+    <script src="/js/js.js" type="module"></script>
 
   </head>
 <body>
