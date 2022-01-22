@@ -23,7 +23,7 @@
         "mongodb": "^3.1.7",
         "mongoose": "^5.3.9",
         "mustache-express": "^1.2.8",
-        "node-fetch": "^2.6.0",
+        "node-fetch": "^3.1.1",
         "simple-statistics": "^7.1.0",
         "sudo-js": "^1.0.2",
         "zingchart": "^2.9.0"
